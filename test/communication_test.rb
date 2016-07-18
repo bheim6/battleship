@@ -1,18 +1,27 @@
+require 'SimpleCov'
+SimpleCov.start
+
+gem 'minitest'
+require './lib/communication'
+require 'minitest/autorun'
+require 'minitest/pride'
 require 'pry'
 
-class Interface
-  attr_reader :input
+class CommunicationTest < Minitest::Test
 
-  def welcome
-  "      Welcome to :*:~~ BATTLESHIP ~~:*:"
+  def test_it_can_welcome_player
+    interface = Interface.new
+    assert_equal "      Welcome to :*:~~ BATTLESHIP ~~:*:", interface.welcome
   end
 
-  def menu
-  "      Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
+  def test_it_can_show_the_menu
+    interface = Interface.new
+    assert_equal "      Would you like to (p)lay, read the (i)nstructions, or (q)uit?", interface.menu
   end
 
-  def instructions
-  "      BATTLESHIP Instructions:
+  def test_it_can_display_instructions
+    interface = Interface.new
+    assert_equal "      BATTLESHIP Instructions:
       You are an adept Naval Captain sailing the high seas,
       your majestic fleet is powerful... but so is your Enemies'!
 
@@ -29,13 +38,7 @@ class Interface
       sink their Battleships!
 
       The battle is over when one player has no more ships left,
-      Good Luck sailor! "
-  end
-
+      Good Luck sailor! ", interface.instructions
+    end
 
 end
-
-# int = Interface.new
-# puts int.welcome
-# puts int.menu
-# puts int.instructions
