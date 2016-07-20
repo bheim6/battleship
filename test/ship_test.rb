@@ -63,8 +63,28 @@ class ShipTest < Minitest::Test
     ship = Ship.new("3", ["A1", "A3"])
     assert ship.valid_horizontal?
 
-    ship = Ship.new("2", ["A1", "A2"])
-    assert ship.valid_horizontal
+    ship = Ship.new("2", ["A2", "A3"])
+    assert ship.valid_horizontal?
+
+    ship = Ship.new("3", ["A1", "A2"])
+    refute ship.valid_horizontal?
+
+    ship = Ship.new("2", ["A1", "A3"])
+    refute ship.valid_horizontal?
+  end
+
+  def test_it_is_a_valid_vertical_ship
+    ship = Ship.new("2", ["A1", "B1"])
+    assert ship.valid_vertical?
+
+    ship = Ship.new("3", ["A1", "C1"])
+    assert ship.valid_vertical?
+
+    ship = Ship.new("2", ["A1", "C1"])
+    refute ship.valid_vertical?
+
+    ship = Ship.new("2", ["B1", "D1"])
+    refute ship.valid_vertical?
   end
 
 

@@ -10,6 +10,7 @@ class PlayerInput
   end
 
   def menu_choice
+    #Use case statement here: when "q", "quit", when "i", "instructions", etc.
     if input == "q"
       game_state = "quit"
     elsif input == "i"
