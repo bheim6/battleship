@@ -11,6 +11,11 @@ class Ship
     @stern = location[1].split("")
   end
 
+  # def bow_and_stern
+  #   @bow = location[0].split("")
+  #   @stern = location[1].split("")
+  # end
+
   def valid_size?
     if size == "2" || size == "3"
       true

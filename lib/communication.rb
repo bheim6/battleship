@@ -29,7 +29,25 @@ class Communication
       sink their Battleships!
 
       The battle is over when one player has no more ships left,
-      Good Luck sailor! "
+      Good Luck sailor!"
+  end
+
+  def self.player_place_first_ship
+    "      I have laid out my ships on the grid.
+           You now need to layout your two ships.
+           The first is two units long and the
+           second is three units long.
+           The grid has A1 at the top left and D4 at the bottom right.
+
+           Enter the squares for the two-unit ship:"
+  end
+
+  def self.player_place_second_ship
+    "      Enter the squares for the three-unit ship:"
+  end
+
+  def self.
+
   end
 
 
