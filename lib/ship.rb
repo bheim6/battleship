@@ -33,6 +33,13 @@ class Ship
     else
       false
     end
+    binding.pry
+  end
+
+  def valid_horizontal?
+#will only run this if horizontal? returns true, testing that coordinates match size
+    width = (@bow[1].to_i - @stern[1].to_i)
+    width.abs 
   end
 
   def vertical?
@@ -42,6 +49,8 @@ class Ship
       false
     end
   end
+
+
 
 
 end
