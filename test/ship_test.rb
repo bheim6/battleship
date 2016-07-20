@@ -42,6 +42,14 @@ class ShipTest < Minitest::Test
     # refute ship.valid_location_format?
   end
 
+  # def test_its_location_is_on_the_board
+  #   ship = Ship.new("3", ["A1", "A3"])
+  #   assert ship.valid_location?
+  #
+  #   ship = Ship.new("2", ["D1", "E1"])
+  #   refute ship.valid_location?
+  # end
+
   def test_it_can_be_horizontal
     ship = Ship.new("3", ["A1", "A3"])
     assert ship.horizontal?

@@ -7,8 +7,12 @@ class Ship
   def initialize(size, location)
     @size = size
     @location = location
-    @bow = location[0].split("")
-    @stern = location[1].split("")
+    # @possible = ["A1", "A2", "A3", "A4",
+    #              "B1", "B2", "B3", "B4",
+    #              "C1", "C2", "C3", "C4",
+    #              "D1", "D2", "D3", "D4"]
+
+
   end
 
   # def bow_and_stern
@@ -32,11 +36,17 @@ class Ship
     end
   end
 
-  def valid_bow_and_stern?
-
-  end
+  # def valid_location?
+  #   if @possible.include?(location[0] && location[1])
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
   def horizontal?
+    @bow = location[0].split("")
+    @stern = location[1].split("")
     if @bow[0] == @stern[0]
       true
     else
@@ -45,6 +55,8 @@ class Ship
   end
 
   def valid_horizontal?
+    @bow = location[0].split("")
+    @stern = location[1].split("")
     width = (@bow[1].to_i - @stern[1].to_i)
      if width.abs == (size.to_i - 1)
        true
@@ -54,6 +66,8 @@ class Ship
   end
 
   def vertical?
+    @bow = location[0].split("")
+    @stern = location[1].split("")
     if @bow[1] == @stern[1]
       true
     else
@@ -62,6 +76,8 @@ class Ship
   end
 
   def valid_vertical?
+    @bow = location[0].split("")
+    @stern = location[1].split("")
     width = (@bow[0].ord - @stern[0].ord)
      if width.abs == (size.to_i - 1)
        true
