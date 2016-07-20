@@ -1,5 +1,6 @@
 require 'pry'
 require_relative 'communication'
+require_relative 'ship'
 
 class PlayerInput
   attr_reader :input
@@ -15,9 +16,9 @@ class PlayerInput
   def menu_choice
     #Use case statement here: when "q", "quit", when "i", "instructions", etc.
     puts Communication.menu
-    @input = gets.chomp
+    menu_input = gets.chomp
 
-    case @input
+    case menu_input
     when "q", "quit"
       game_state = "quit"
     when "i", "instructions"
@@ -31,18 +32,30 @@ class PlayerInput
     end
   end
 
-  def ship_placement
+  def first_ship_placement
     puts Communication.player_place_first_ship
-    @input = gets.chomp.upcase.split(" ")
+    input = gets.chomp.upcase.split(" ")
+    two_unit_ship = Ship.new("2", input)
 
-    if @input.length != 2
-      Communication.invalid_location_format
+    while two_unit_ship.
+      puts Communication.invalid_location_format
+      input = gets.chomp.upcase.split(" ")
     end
-    binding.pry
-
-
-
+    # two_unit_ship = input
   end
+
+
+
+    # if @input.length == 2
+    #   puts Communication.player_place_second_ship
+    #
+    #
+    # end
+    # binding.pry
+
+
+
+
 
 
 
@@ -50,4 +63,4 @@ end
 
 interface = PlayerInput.new
 
-interface.ship_placement
+interface.first_ship_placement

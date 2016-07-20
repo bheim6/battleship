@@ -32,6 +32,10 @@ class Ship
     end
   end
 
+  def valid_bow_and_stern?
+
+  end
+
   def horizontal?
     if @bow[0] == @stern[0]
       true
