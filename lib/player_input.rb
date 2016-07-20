@@ -11,13 +11,16 @@ class PlayerInput
 
   def menu_choice
     #Use case statement here: when "q", "quit", when "i", "instructions", etc.
-    if input == "q"
+    when "q", "quit"
       game_state = "quit"
-    elsif input == "i"
+    when "i", "instructions"
       puts Communication.instructions
       PlayerInput.new.menu
-    elsif input == "p"
+    when "p", "play"
       game_state = "play"
+    else
+      puts Communication.try_again
+      PlayerInput.new.menu
     end
   end
 

@@ -10,17 +10,14 @@ require 'pry'
 class CommunicationTest < Minitest::Test
 
   def test_it_can_welcome_player
-    interface = Interface.new
-    assert_equal "      Welcome to :*:~~ BATTLESHIP ~~:*:", interface.welcome
+    assert_equal "      Welcome to :*:~~ BATTLESHIP ~~:*:", Communication.welcome
   end
 
   def test_it_can_show_the_menu
-    interface = Interface.new
-    assert_equal "      Would you like to (p)lay, read the (i)nstructions, or (q)uit?", interface.menu
+    assert_equal "      Would you like to (p)lay, read the (i)nstructions, or (q)uit?", Communication.menu
   end
 
   def test_it_can_display_instructions
-    interface = Interface.new
     assert_equal "      BATTLESHIP Instructions:
       You are an adept Naval Captain sailing the high seas,
       your majestic fleet is powerful... but so is your Enemies'!
@@ -38,7 +35,7 @@ class CommunicationTest < Minitest::Test
       sink their Battleships!
 
       The battle is over when one player has no more ships left,
-      Good Luck sailor! ", interface.instructions
+      Good Luck sailor!", Communication.instructions
     end
 
 end

@@ -32,6 +32,10 @@ class Communication
       Good Luck sailor!"
   end
 
+  def self.try_again
+  "      Try again, genius"
+  end
+
   def self.player_place_first_ship
     "      I have laid out my ships on the grid.
            You now need to layout your two ships.
@@ -46,14 +50,26 @@ class Communication
     "      Enter the squares for the three-unit ship:"
   end
 
-  def self.
-
+  def self.invalid_location_format
+    "      Invalid ship location, please enter the coordinates
+           of the two endpoints of the ship with the format: A1 A2"
   end
 
+  def self.diagonal_ship
+    "      Invalid ship orientation, please place the ship horizontally
+           or vertically, no diagonals"
+  end
+
+  def self.invalid_ship_size
+    "      Invalid ship coordinates, please enter coordinates that match
+           the size of the ship you are placing.
+           two-unit ship examples: A1 A2 (horizontal), or A1 B1 (vertical)
+           three-unit ship examples: A1 A3 (horizontal), or A1 C1 (vertical)"
+  end
 
 end
 
-# int = Interface.new
-# puts int.welcome
-# puts int.menu
-# puts int.instructions
+# com = Communication.new
+# puts com.welcome
+# puts com.menu
+# puts com.instructions
