@@ -7,6 +7,8 @@ class Ship
   def initialize(size, location)
     @size = size
     @location = location
+    @bow = location[0].split("")
+    @stern = location[1].split("")
   end
 
   def valid_size?
@@ -26,14 +28,24 @@ class Ship
   end
 
   def horizontal?
-    bow = ship.location[0]
-    stern = ship.location[1]
+    if @bow[0] == @stern[0]
+      true
+    else
+      false
+    end
+  end
 
+  def vertical?
+    if @bow[1] == @stern[1]
+      true
+    else
+      false
+    end
   end
 
 
 end
 
-new_ship = Ship.new("3", ["A1", "A3"])
-new_ship.horizontal?
-binding.pry
+# new_ship = Ship.new("3", ["A1", "A3"])
+# new_ship.horizontal?
+# binding.pry

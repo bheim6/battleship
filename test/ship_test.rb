@@ -39,22 +39,25 @@ class ShipTest < Minitest::Test
     refute ship.valid_location_format?
   end
 
-  def test_it_is_horizo
-    skip
+  def test_it_can_be_horizontal
     ship = Ship.new("3", ["A1", "A3"])
     assert ship.horizontal?
   end
 
+  def test_it_returns_false_if_not_horizontal
+    ship = Ship.new("2", ["A1", "B1"])
+    refute ship.horizontal?
+  end
 
+  def test_it_can_be_vertical
+    ship = Ship.new("2", ["A1", "B1"])
+    assert ship.vertical?
+  end
 
-
-
-
-
-
-
-
-
+  def test_it_returns_false_if_not_vertical
+    ship = Ship.new("3", ["A1", "A3"])
+    assert ship.horizontal?
+  end
 
 
 end
