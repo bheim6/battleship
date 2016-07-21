@@ -10,15 +10,16 @@ class Game
       puts Communication.quitter
     elsif @menu_input == "play"
       fleet = PlayerPlaceShips.new
-      fleet.first_ship_verify_location_format
-      fleet.first_ship_verify_location_is_on_board
-      fleet.first_ship_verify_horizontal_or_vertical
-      fleet.first_ship_verify_valid_h_or_z
-      fleet.second_ship_verify_location_format
-      fleet.second_ship_verify_location_is_on_board
-      fleet.second_ship_verify_horizontal_or_vertical
-      fleet.second_ship_verify_valid_h_or_z
-      fleet.second_ship_verify_no_overlap
+      @two_unit_ship = fleet.first_ship_verify_location_format
+      # fleet.first_ship_verify_location_is_on_board
+      binding.pry
+      # fleet.first_ship_verify_horizontal_or_vertical
+      # fleet.first_ship_verify_valid_h_or_z
+      # fleet.second_ship_verify_location_format
+      # fleet.second_ship_verify_location_is_on_board
+      # fleet.second_ship_verify_horizontal_or_vertical
+      # fleet.second_ship_verify_valid_h_or_z
+      # fleet.second_ship_verify_no_overlap
     end
   end
 end

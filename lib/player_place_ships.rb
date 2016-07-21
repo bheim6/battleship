@@ -21,6 +21,7 @@ class PlayerPlaceShips
       @input = gets.chomp.upcase.split(" ")
       @two_unit_ship = Ship.new("2", @input)
     end
+    @two_unit_ship
   end
 
   def first_ship_verify_location_is_on_board
@@ -29,6 +30,7 @@ class PlayerPlaceShips
       @input = gets.chomp.upcase.split(" ")
       @two_unit_ship = Ship.new("2", @input)
     end
+    @two_unit_ship
   end
 
   def first_ship_verify_horizontal_or_vertical
@@ -37,6 +39,7 @@ class PlayerPlaceShips
       @input = gets.chomp.upcase.split(" ")
       @two_unit_ship = Ship.new("2", @input)
     end
+    @two_unit_ship
   end
 
   def first_ship_verify_valid_h_or_z
@@ -45,7 +48,11 @@ class PlayerPlaceShips
       @input = gets.chomp.upcase.split(" ")
       @two_unit_ship = Ship.new("2", @input)
     end
-    @second_ship_possible = @possible - @two_unit_ship.location
+    @two_unit_ship
+  end
+
+  def new_possible_coordinates
+    @second_ship_possible = (@possible - @two_unit_ship.location)
   end
 
   def second_ship_verify_location_format
@@ -58,6 +65,7 @@ class PlayerPlaceShips
       @input = gets.chomp.upcase.split(" ")
       @three_unit_ship = Ship.new("3", @input)
     end
+    @three_unit_ship
   end
 
   def second_ship_verify_location_is_on_board
