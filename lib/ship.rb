@@ -1,5 +1,4 @@
 require 'pry'
-# require_relative 'communication'
 
 class Ship
   attr_reader :size, :location
@@ -7,18 +6,7 @@ class Ship
   def initialize(size, location)
     @size = size
     @location = location
-    # @possible = ["A1", "A2", "A3", "A4",
-    #              "B1", "B2", "B3", "B4",
-    #              "C1", "C2", "C3", "C4",
-    #              "D1", "D2", "D3", "D4"]
-
-
   end
-
-  # def bow_and_stern
-  #   @bow = location[0].split("")
-  #   @stern = location[1].split("")
-  # end
 
   def valid_size?
     if size == "2" || size == "3"
@@ -35,14 +23,6 @@ class Ship
       false
     end
   end
-
-  # def valid_location?
-  #   if @possible.include?(location[0] && location[1])
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
 
   def horizontal?
     @bow = location[0].split("")
@@ -85,12 +65,5 @@ class Ship
        false
      end
   end
-
-
-
-
+  
 end
-
-# new_ship = Ship.new("3", ["A1", "A3"])
-# new_ship.horizontal?
-# binding.pry

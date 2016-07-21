@@ -2,33 +2,13 @@ require 'pry'
 require_relative 'communication'
 require_relative 'ship'
 
-class PlayerInput
-  # attr_reader :input
+class PlayerPlaceShips
 
   def initialize
     @possible = ["A1", "A2", "A3", "A4",
                  "B1", "B2", "B3", "B4",
                  "C1", "C2", "C3", "C4",
                  "D1", "D2", "D3", "D4"]
-  end
-
-  def menu_choice
-    #Use case statement here: when "q", "quit", when "i", "instructions", etc.
-    puts Communication.menu
-    menu_input = gets.chomp
-
-    case menu_input
-    when "q", "quit"
-      game_state = "quit"
-    when "i", "instructions"
-      puts Communication.instructions
-      PlayerInput.new.menu_choice
-    when "p", "play"
-      game_state = "play"
-    else
-      puts Communication.try_again
-      PlayerInput.new.menu_choice
-    end
   end
 
   def first_ship_verify_location_format
@@ -70,9 +50,9 @@ class PlayerInput
 
 end
 
-interface = PlayerInput.new
+fleet = PlayerPlaceShips.new
 
-interface.first_ship_verify_location_format
-interface.first_ship_verify_location_is_on_board
-interface.first_ship_verify_horizontal_or_vertical
-interface.first_ship_verify_valid_h_or_z
+fleet.first_ship_verify_location_format
+fleet.first_ship_verify_location_is_on_board
+fleet.first_ship_verify_horizontal_or_vertical
+fleet.first_ship_verify_valid_h_or_z

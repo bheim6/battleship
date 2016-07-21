@@ -33,7 +33,7 @@ class Communication
   end
 
   def self.try_again
-  "      Try again, genius"
+    "      Try again, genius"
   end
 
   def self.player_place_first_ship
@@ -52,30 +52,25 @@ class Communication
 
   def self.invalid_location_format
     "      Invalid ship location, please enter the coordinates
-           of the two endpoints of the ship with the format: A1 A2"
+      of the two endpoints of the ship with the format: A1 A2"
   end
 
   def self.location_not_on_the_board
     "      Invalid ship location, not on the game board, please
-           enter proper coordinates, A1 is top left, D4 is bottom
-           right"
+      enter proper coordinates, A1 is top left, D4 is bottom
+      right"
   end
 
   def self.diagonal_ship
     "      Invalid ship orientation, please place the ship horizontally
-           or vertically, no diagonals"
+      or vertically, no diagonals"
   end
 
   def self.invalid_ship_size
     "      Invalid ship coordinates, please enter coordinates that match
-           the size of the ship you are placing.
-           two-unit ship examples: A1 A2 (horizontal), or A1 B1 (vertical)
-           three-unit ship examples: A1 A3 (horizontal), or A1 C1 (vertical)"
+      the size of the ship you are placing.
+      two-unit ship examples: A1 A2 (horizontal), or A1 B1 (vertical)
+      three-unit ship examples: A1 A3 (horizontal), or A1 C1 (vertical)"
   end
 
 end
-
-# com = Communication.new
-# puts com.welcome
-# puts com.menu
-# puts com.instructions

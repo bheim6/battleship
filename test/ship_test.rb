@@ -37,18 +37,7 @@ class ShipTest < Minitest::Test
   def test_it_has_an_invalid_location_format
     ship = Ship.new("3", ["A1", "A2", "A3"])
     refute ship.valid_location_format?
-#How to remedy this edge case?
-    # ship = Ship.new("3", ["A1"])
-    # refute ship.valid_location_format?
   end
-
-  # def test_its_location_is_on_the_board
-  #   ship = Ship.new("3", ["A1", "A3"])
-  #   assert ship.valid_location?
-  #
-  #   ship = Ship.new("2", ["D1", "E1"])
-  #   refute ship.valid_location?
-  # end
 
   def test_it_can_be_horizontal
     ship = Ship.new("3", ["A1", "A3"])
@@ -97,6 +86,5 @@ class ShipTest < Minitest::Test
     ship = Ship.new("2", ["B1", "D1"])
     refute ship.valid_vertical?
   end
-
 
 end
