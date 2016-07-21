@@ -45,6 +45,15 @@ class Ship
      end
   end
 
+  def calculate_deck_horizontal
+    @bow = location[0].split("")
+    @stern = location[1].split("")
+    nums = []
+    nums << @bow[1].to_i
+    nums << @stern[1].to_i
+    @deck = (@bow[0] + (nums.min + 1).to_s)
+  end
+
   def vertical?
     @bow = location[0].split("")
     @stern = location[1].split("")
@@ -65,5 +74,13 @@ class Ship
        false
      end
   end
-  
+
+
+end
+
+def calculate_deck_vertical
+  @bow = location[0].split("")
+  @stern = location[1].split("")
+
+
 end

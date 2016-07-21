@@ -87,4 +87,17 @@ class ShipTest < Minitest::Test
     refute ship.valid_vertical?
   end
 
+  def test_three_unit_ships_fill_in_missing_coordinate_horizontal
+    ship = Ship.new("3", ["A1", "A3"])
+    assert_equal "A2", ship.calculate_deck_horizontal
+
+    ship = Ship.new("3", ["B4", "B2"])
+    assert_equal "B3", ship.calculate_deck_horizontal
+  end
+
+  def test_three_unit_ships_fill_in_missing_coordinate_vertical
+    ship = Ship.new("3", ["A1", "C1"])
+
+  end
+
 end
