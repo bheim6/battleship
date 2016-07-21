@@ -24,46 +24,17 @@ class PlayerPlaceShips
     two_unit_ship
   end
 
-  def first_ship_verify_location_is_on_board
-    until @possible.include?(ship.location[0]) && @possible.include?(ship.location[1])
-      puts Communication.location_not_on_the_board
-    end
-    return true
-  end
-
-  def first_ship_verify_horizontal_or_vertical
-    until @two_unit_ship.horizontal? || @two_unit_ship.vertical?
-      puts Communication.diagonal_ship
-      @input = gets.chomp.upcase.split(" ")
-      @two_unit_ship = Ship.new("2", @input)
-    end
-    @two_unit_ship
-  end
-
-  def first_ship_verify_valid_h_or_z
-    until @two_unit_ship.valid_horizontal? || @two_unit_ship.valid_vertical?
-      puts Communication.invalid_ship_size
-      @input = gets.chomp.upcase.split(" ")
-      @two_unit_ship = Ship.new("2", @input)
-    end
-    @two_unit_ship
-  end
-
-  def new_possible_coordinates
-    @second_ship_possible = (@possible - @two_unit_ship.location)
-  end
-
   def second_ship_verify_location_format
     puts Communication.player_place_second_ship
-    @input = gets.chomp.upcase.split(" ")
+    input = gets.chomp.upcase.split(" ")
 
-    @three_unit_ship = Ship.new("3", @input)
-    until @three_unit_ship.valid_location_format?
+    three_unit_ship = Ship.new("3", input)
+    until three_unit_ship.valid_location_format?
       puts Communication.invalid_location_format
-      @input = gets.chomp.upcase.split(" ")
-      @three_unit_ship = Ship.new("3", @input)
+      input = gets.chomp.upcase.split(" ")
+      three_unit_ship = Ship.new("3", input)
     end
-    @three_unit_ship
+    three_unit_ship
   end
 
   def second_ship_verify_location_is_on_board

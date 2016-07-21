@@ -40,7 +40,33 @@ class Game
 
         second_ship_possible = (@possible - two_unit_ship.location)
 
+        three_unit_ship = PlayerPlaceShips.new.second_ship_verify_location_format
 
+        until @possible.include?(three_unit_ship.location[0]) && @possible.include?(three_unit_ship.location[1])
+          puts Communication.location_not_on_the_board
+          three_unit_ship = PlayerPlaceShips.new.second_ship_verify_location_format
+        end
+
+        until three_unit_ship.horizontal? || three_unit_ship.vertical?
+          puts Communication.diagonal_ship
+          three_unit_ship = PlayerPlaceShips.new.second_ship_verify_location_format
+        end
+
+        if three_unit_ship.horizontal?
+          deck = three_unit_ship.calculate_deck_horizontal
+        elsif three_unit_ship.vertical?
+          deck = three_unit_ship.calculate_deck_vertical
+        end
+
+        until second_ship_possible.include?(three_unit_ship.location[0]) && second_ship_possible.include?(three_unit_ship.location[1]) && second_ship_possible.include?(deck)
+          puts Communication.location_overlaps_first_ship
+          three_unit_ship = PlayerPlaceShips.new.second_ship_verify_location_format
+          if three_unit_ship.horizontal?
+            deck = three_unit_ship.calculate_deck_horizontal
+          elsif three_unit_ship.vertical?
+            deck = three_unit_ship.calculate_deck_vertical
+          end
+        end
         game = "over"
       end
   end
