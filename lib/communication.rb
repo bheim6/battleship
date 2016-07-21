@@ -73,4 +73,9 @@ class Communication
       three-unit ship examples: A1 A3 (horizontal), or A1 C1 (vertical)"
   end
 
+  def self.location_overlaps_first_ship
+    "      Invalid ship coordinates, you are overlapping the two-unit ship,
+      please enter valid coordinates"
+  end
+
 end

@@ -75,12 +75,14 @@ class Ship
      end
   end
 
-
-end
-
-def calculate_deck_vertical
-  @bow = location[0].split("")
-  @stern = location[1].split("")
+  def calculate_deck_vertical
+    @bow = location[0].split("")
+    @stern = location[1].split("")
+    letters = []
+    letters << @bow[0]
+    letters << @stern[0]
+    @deck = (letters.min.next + @bow[1])
+  end
 
 
 end

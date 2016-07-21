@@ -84,6 +84,20 @@ class PlayerPlaceShips
     end
   end
 
+  def second_ship_verify_no_overlap
+    if @three_unit_ship.horizontal?
+      @deck = @three_unit_ship.calculate_deck_horizontal
+    elsif @three_unit_ship.vertical?
+      @deck = @three_unit_ship.calculate_deck_vertical
+        until @second_ship_possible.include?(@input[0]) && @second_ship_possible.include?(@input[1]) && @second_ship_possible.include?(@deck)
+        puts Communication.location_overlaps_first_ship
+        @input = gets.chomp.upcase.split(" ")
+        @three_unit_ship = Ship.new("3", @input)
+        end
+    end
+    # @open_sea =
+  end
+
 end
 
 fleet = PlayerPlaceShips.new
@@ -94,5 +108,6 @@ fleet.first_ship_verify_horizontal_or_vertical
 fleet.first_ship_verify_valid_h_or_z
 fleet.second_ship_verify_location_format
 fleet.second_ship_verify_location_is_on_board
+fleet.second_ship_verify_no_overlap
 fleet.second_ship_verify_horizontal_or_vertical
 fleet.second_ship_verify_valid_h_or_z

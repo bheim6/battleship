@@ -97,7 +97,10 @@ class ShipTest < Minitest::Test
 
   def test_three_unit_ships_fill_in_missing_coordinate_vertical
     ship = Ship.new("3", ["A1", "C1"])
+    assert_equal "B1", ship.calculate_deck_vertical
 
+    ship = Ship.new("3", ["B3", "D3"])
+    assert_equal "C3", ship.calculate_deck_vertical
   end
 
 end
