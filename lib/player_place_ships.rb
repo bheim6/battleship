@@ -95,19 +95,18 @@ class PlayerPlaceShips
         @three_unit_ship = Ship.new("3", @input)
         end
     end
-    # @open_sea =
   end
 
 end
 
-fleet = PlayerPlaceShips.new
-
-fleet.first_ship_verify_location_format
-fleet.first_ship_verify_location_is_on_board
-fleet.first_ship_verify_horizontal_or_vertical
-fleet.first_ship_verify_valid_h_or_z
-fleet.second_ship_verify_location_format
-fleet.second_ship_verify_location_is_on_board
-fleet.second_ship_verify_no_overlap
-fleet.second_ship_verify_horizontal_or_vertical
-fleet.second_ship_verify_valid_h_or_z
+# fleet = PlayerPlaceShips.new
+#
+# fleet.first_ship_verify_location_format
+# fleet.first_ship_verify_location_is_on_board
+# fleet.first_ship_verify_horizontal_or_vertical
+# fleet.first_ship_verify_valid_h_or_z
+# fleet.second_ship_verify_location_format
+# fleet.second_ship_verify_location_is_on_board
+# fleet.second_ship_verify_no_overlap
+# fleet.second_ship_verify_horizontal_or_vertical
+# fleet.second_ship_verify_valid_h_or_z

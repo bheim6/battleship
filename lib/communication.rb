@@ -1,7 +1,6 @@
 require 'pry'
 
 class Communication
-  attr_reader :input
 
   def self.welcome
   "      Welcome to :*:~~ BATTLESHIP ~~:*:"
@@ -78,4 +77,7 @@ class Communication
       please enter valid coordinates"
   end
 
+  def self.quitter
+    "      Can't handle battle on the high seas?! Suit yourself, land-lubber!"
+  end
 end

@@ -1,4 +1,5 @@
 require 'pry'
-require 'game'
+require_relative 'game'
 
-game.start
+new_game = Game.new
+new_game.start

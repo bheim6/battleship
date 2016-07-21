@@ -102,5 +102,4 @@ class ShipTest < Minitest::Test
     ship = Ship.new("3", ["B3", "D3"])
     assert_equal "C3", ship.calculate_deck_vertical
   end
-
 end

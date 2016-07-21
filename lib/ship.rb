@@ -83,6 +83,4 @@ class Ship
     letters << @stern[0]
     @deck = (letters.min.next + @bow[1])
   end
-
-
 end
