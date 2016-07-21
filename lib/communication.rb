@@ -55,6 +55,12 @@ class Communication
            of the two endpoints of the ship with the format: A1 A2"
   end
 
+  def self.location_not_on_the_board
+    "      Invalid ship location, not on the game board, please
+           enter proper coordinates, A1 is top left, D4 is bottom
+           right"
+  end
+
   def self.diagonal_ship
     "      Invalid ship orientation, please place the ship horizontally
            or vertically, no diagonals"

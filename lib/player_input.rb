@@ -31,20 +31,42 @@ class PlayerInput
     end
   end
 
-  def first_ship_placement
+  def first_ship_verify_location_format
     puts Communication.player_place_first_ship
-    input = gets.chomp.upcase.split(" ")
+    @input = gets.chomp.upcase.split(" ")
 
-    two_unit_ship = Ship.new("2", input)
-    until two_unit_ship.valid_location_format?
+    @two_unit_ship = Ship.new("2", @input)
+    until @two_unit_ship.valid_location_format?
       puts Communication.invalid_location_format
-      input = gets.chomp.upcase.split(" ")
-      two_unit_ship = Ship.new("2", input)
+      @input = gets.chomp.upcase.split(" ")
+      @two_unit_ship = Ship.new("2", @input)
     end
-    two_unit_ship
-    @new_possible = @possible - two_unit_ship.location
   end
 
+  def first_ship_verify_location_is_on_board
+    until @possible.include?(@input[0]) && @possible.include?(@input[1])
+      puts Communication.location_not_on_the_board
+      @input = gets.chomp.upcase.split(" ")
+      @two_unit_ship = Ship.new("2", @input)
+    end
+  end
+
+  def first_ship_verify_horizontal_or_vertical
+    until @two_unit_ship.horizontal? || @two_unit_ship.vertical?
+      puts Communication.diagonal_ship
+      @input = gets.chomp.upcase.split(" ")
+      @two_unit_ship = Ship.new("2", @input)
+    end
+  end
+
+  def first_ship_verify_valid_h_or_z
+
+  end
+
+
+
+  # @second_ship_possible = @possible - @two_unit_ship.location
+  # binding.pry
 
 
     # if @input.length == 2
@@ -57,4 +79,6 @@ end
 
 interface = PlayerInput.new
 
-interface.first_ship_placement
+interface.first_ship_verify_location_format
+interface.first_ship_verify_location_is_on_board
+interface.first_ship_verify_horizontal_or_vertical
