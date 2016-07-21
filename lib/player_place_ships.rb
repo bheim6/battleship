@@ -48,6 +48,42 @@ class PlayerPlaceShips
     @second_ship_possible = @possible - @two_unit_ship.location
   end
 
+  def second_ship_verify_location_format
+    puts Communication.player_place_second_ship
+    @input = gets.chomp.upcase.split(" ")
+
+    @three_unit_ship = Ship.new("3", @input)
+    until @three_unit_ship.valid_location_format?
+      puts Communication.invalid_location_format
+      @input = gets.chomp.upcase.split(" ")
+      @three_unit_ship = Ship.new("3", @input)
+    end
+  end
+
+  def second_ship_verify_location_is_on_board
+    until @possible.include?(@input[0]) && @possible.include?(@input[1])
+      puts Communication.location_not_on_the_board
+      @input = gets.chomp.upcase.split(" ")
+      @three_unit_ship = Ship.new("3", @input)
+    end
+  end
+
+  def second_ship_verify_horizontal_or_vertical
+    until @three_unit_ship.horizontal? || @three_unit_ship.vertical?
+      puts Communication.diagonal_ship
+      @input = gets.chomp.upcase.split(" ")
+      @three_unit_ship = Ship.new("3", @input)
+    end
+  end
+
+  def second_ship_verify_valid_h_or_z
+    until @three_unit_ship.valid_horizontal? || @three_unit_ship.valid_vertical?
+      puts Communication.invalid_ship_size
+      @input = gets.chomp.upcase.split(" ")
+      @three_unit_ship = Ship.new("3", @input)
+    end
+  end
+
 end
 
 fleet = PlayerPlaceShips.new
@@ -56,3 +92,7 @@ fleet.first_ship_verify_location_format
 fleet.first_ship_verify_location_is_on_board
 fleet.first_ship_verify_horizontal_or_vertical
 fleet.first_ship_verify_valid_h_or_z
+fleet.second_ship_verify_location_format
+fleet.second_ship_verify_location_is_on_board
+fleet.second_ship_verify_horizontal_or_vertical
+fleet.second_ship_verify_valid_h_or_z
