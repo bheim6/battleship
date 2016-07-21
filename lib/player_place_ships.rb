@@ -13,24 +13,22 @@ class PlayerPlaceShips
 
   def first_ship_verify_location_format
     puts Communication.player_place_first_ship
-    @input = gets.chomp.upcase.split(" ")
+    input = gets.chomp.upcase.split(" ")
 
-    @two_unit_ship = Ship.new("2", @input)
-    until @two_unit_ship.valid_location_format?
+    two_unit_ship = Ship.new("2", input)
+    until two_unit_ship.valid_location_format?
       puts Communication.invalid_location_format
-      @input = gets.chomp.upcase.split(" ")
-      @two_unit_ship = Ship.new("2", @input)
+      input = gets.chomp.upcase.split(" ")
+      two_unit_ship = Ship.new("2", input)
     end
-    @two_unit_ship
+    two_unit_ship
   end
 
   def first_ship_verify_location_is_on_board
-    until @possible.include?(@input[0]) && @possible.include?(@input[1])
+    until @possible.include?(ship.location[0]) && @possible.include?(ship.location[1])
       puts Communication.location_not_on_the_board
-      @input = gets.chomp.upcase.split(" ")
-      @two_unit_ship = Ship.new("2", @input)
     end
-    @two_unit_ship
+    return true
   end
 
   def first_ship_verify_horizontal_or_vertical
